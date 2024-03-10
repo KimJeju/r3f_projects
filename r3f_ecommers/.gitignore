@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# modeling files
+*.png
+*.fbx
+*.obj
+*.blend
