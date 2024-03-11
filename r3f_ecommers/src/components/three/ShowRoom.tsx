@@ -10,8 +10,7 @@ export default function ShowRoom(){
     return(
         <>  
             <primitive object={obj} />
-            <primitive object={fbx} />
-
+            {/* <primitive object={fbx} /> */}
             {/* <mesh 
                 rotation={[
                     THREE.MathUtils.degToRad(45),
