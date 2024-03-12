@@ -36,7 +36,7 @@ export default function ShowRoom(){
 
             firstObject.material = cloneMat; // 기존 머테리얼에 복사한 머테리얼을 넣어준다.
             const mat = firstObject.material as THREE.MeshStandardMaterial
-            mat.color = new THREE.Color("red")
+            mat.color = new THREE.Color("orange")
             
         }
     }
