@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { FBXLoader, OBJLoader, GLTFLoader } from 'three/examples/jsm/Addons.js'
+import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 import { useLoader } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber';
 
@@ -8,8 +8,6 @@ export default function ShowRoom(){
 
     const { raycaster } = useThree()
 
-    const obj = useLoader(OBJLoader, './models/custom.obj');
-    // const fbx = useLoader(FBXLoader, './models/custom.fbx');
     const gltf = useLoader(GLTFLoader, "./models/custom.glb");
 
 
