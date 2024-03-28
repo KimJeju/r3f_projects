@@ -7,8 +7,7 @@ export default function Home(){
     return(
         <>
             <Canvas>   
-                <OrbitControls /> 
-                <directionalLight position={[3,3,3]}/>
+                {/* <OrbitControls />  */}
                 <axesHelper args={[5]} />
                 <gridHelper />
                 <ShowRoom />
