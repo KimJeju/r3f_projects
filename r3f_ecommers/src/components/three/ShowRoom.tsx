@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber';
-import { CameraControls } from '@react-three/drei';
+import { CameraControls, ContactShadows } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 
 
@@ -38,6 +38,15 @@ export default function ShowRoom(){
 
    
     useEffect(() => {
+
+
+        //gltf 매쉬 그림자 켜주기 
+        gltf.scene.children.forEach(el => {
+            el.children.forEach((mesh) => (
+                mesh.castShadow = true
+            ))
+        })
+        
         camearaControlRef.current?.setTarget(0,0,0,false);
 
         camearaControlRef.current?.addEventListener('sleep', () => {
@@ -51,32 +60,32 @@ export default function ShowRoom(){
     },[])
 
     let angle = 0;
-    let dis = 1.2; //거리
+    let dis = 2; //거리
     useFrame(() => {
 
-        // if(!isFitting){
-        // camearaControlRef.current?.setPosition(
-        //     dis * Math.sin(angle),
-        //     dis,
-        //     dis * Math.cos(angle),
-        //     true,
-        // )
-        // angle += 0.01;
-        // }
+        if(!isFitting){
+        camearaControlRef.current?.setPosition(
+            dis * Math.sin(angle),
+            dis,
+            dis * Math.cos(angle),
+            true,
+        )
+        angle += 0.01;
+        }
 
 
         //메터리얼 위치변환
-        // const rightShores = gltf.scene.children[0];
-        // const leftShores = gltf.scene.children[1];
+        const rightShores = gltf.scene.children[0];
+        const leftShores = gltf.scene.children[1];
 
-        // rightShores.rotation.y = THREE.MathUtils.degToRad(10);
+        rightShores.rotation.y = THREE.MathUtils.degToRad(10);
 
-        // leftShores.rotation.y = THREE.MathUtils.degToRad(320);
-        // leftShores.rotation.z = THREE.MathUtils.degToRad(-30);
+        leftShores.rotation.y = THREE.MathUtils.degToRad(320);
+        leftShores.rotation.z = THREE.MathUtils.degToRad(-30);
 
-        // leftShores.position.x = 0;
-        // leftShores.position.z = 0.37;    
-        // leftShores.position.y = 0.44;    
+        leftShores.position.x = 0;
+        leftShores.position.z = 0.37;    
+        leftShores.position.y = 0.44;    
 
 
 
@@ -131,19 +140,30 @@ export default function ShowRoom(){
     return(
         <>  
             {/* <primitive object={obj} />  */}
-            <directionalLight position={[3,3,3]}/>
+            <directionalLight 
+                position={[3,3,3]}
+            />
+            <pointLight
+                position={[0,1,0]}
+                intensity={3}
+            />
+
             <CameraControls 
                 ref={camearaControlRef}
                 enabled={true}
                 dollyToCursor={true} // 마우스가 가르키는 방향으로 확대,축소
+                minDistance={2}
+                maxDistance={10}
                 onChange={(e) => {                  
                 }}
                 // minDistance={2} //카메라가 갈 수 있는 최소거리
                 // maxDistance={15} // 카메라가 갈 수 있는 최대거리
             />
 
+
+            {/* 바닥 */}
             <mesh
-                position={[0,-0.5,0]}
+                position={[0,-0.51,0]}
                 scale={5}
             >
                 <cylinderGeometry 
@@ -151,21 +171,21 @@ export default function ShowRoom(){
                 />
                 <meshStandardMaterial />
             </mesh>
+
             <primitive 
                 object={gltf.scene}
                 onClick={shoesClick}
             />
-            {/* <primitive object={fbx} /> */}
-            {/* <mesh 
-                rotation={[
-                    THREE.MathUtils.degToRad(45),
-                    THREE.MathUtils.degToRad(45),
-                    0
-                ]}
-            >
-                <boxGeometry />
-                <meshStandardMaterial />
-            </mesh> */}
+
+            {/* 독자적으로 만드는 그림자 => 자연스러움 */}
+            <ContactShadows 
+                position={[0,0,0]}
+                scale={10}
+                color='#000000'
+                resolution={512}
+                opacity={0.8}
+                blur={0.5}
+            />
         </>
     )
 }

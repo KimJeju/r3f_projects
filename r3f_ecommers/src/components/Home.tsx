@@ -8,8 +8,8 @@ export default function Home(){
         <>
             <Canvas>   
                 {/* <OrbitControls />  */}
-                <axesHelper args={[5]} />
-                <gridHelper />
+                {/* <axesHelper args={[5]} />
+                <gridHelper /> */}
                 <ShowRoom />
             </Canvas>
         </>
