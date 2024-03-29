@@ -1,9 +1,9 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/Addons.js'
-import { useLoader } from '@react-three/fiber'
+import { useFrame, useLoader } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 
 export default function ShowRoom(){
@@ -12,7 +12,42 @@ export default function ShowRoom(){
 
     const gltf = useLoader(GLTFLoader, "./models/custom.glb");
     const camearaControlRef = useRef<CameraControls>(null);
+    
+    window.addEventListener("keydown", (e) => {
+        console.log(e.key,)
 
+        switch(e.key){
+            case 'a' :
+                camearaControlRef.current?.setLookAt(
+                -2,0,2, 
+                0,0,0,
+                true,
+            )
+                break;
+            case 'b' : 
+            camearaControlRef.current?.setLookAt(
+                0,5,0, 
+                0,0,0,
+                true,
+            )
+                break;
+        }
+    })
+
+    useEffect(() => {
+        camearaControlRef.current?.setTarget(0,0,0,false);
+    },[])
+
+    let angle = 0;
+    let dis = 2; //거리
+    useFrame(() => {
+        camearaControlRef.current?.setPosition(
+            dis * Math.sin(angle),
+            dis,
+            dis * Math.cos(angle)
+        )
+        angle += 0.01;
+    })
     const shoesClick = () => {
         console.log("shoes Click");
 
