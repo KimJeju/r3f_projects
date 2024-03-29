@@ -3,12 +3,14 @@ import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 export default function ShowRoom(){
 
     const { raycaster, camera } = useThree()
+
+    const [ isFitting, setIsFitting ] = useState(false);
 
     const gltf = useLoader(GLTFLoader, "./models/custom.glb");
     const camearaControlRef = useRef<CameraControls>(null);
@@ -34,20 +36,52 @@ export default function ShowRoom(){
         }
     })
 
+   
     useEffect(() => {
         camearaControlRef.current?.setTarget(0,0,0,false);
+
+        camearaControlRef.current?.addEventListener('sleep', () => {
+            setIsFitting(false);
+        })
+
+        camearaControlRef.current?.addEventListener('control', () => {
+            setIsFitting(true);
+        })
+    
     },[])
 
     let angle = 0;
-    let dis = 2; //거리
+    let dis = 1.2; //거리
     useFrame(() => {
-        camearaControlRef.current?.setPosition(
-            dis * Math.sin(angle),
-            dis,
-            dis * Math.cos(angle)
-        )
-        angle += 0.01;
+
+        // if(!isFitting){
+        // camearaControlRef.current?.setPosition(
+        //     dis * Math.sin(angle),
+        //     dis,
+        //     dis * Math.cos(angle),
+        //     true,
+        // )
+        // angle += 0.01;
+        // }
+
+
+        //메터리얼 위치변환
+        // const rightShores = gltf.scene.children[0];
+        // const leftShores = gltf.scene.children[1];
+
+        // rightShores.rotation.y = THREE.MathUtils.degToRad(10);
+
+        // leftShores.rotation.y = THREE.MathUtils.degToRad(320);
+        // leftShores.rotation.z = THREE.MathUtils.degToRad(-30);
+
+        // leftShores.position.x = 0;
+        // leftShores.position.z = 0.37;    
+        // leftShores.position.y = 0.44;    
+
+
+
     })
+
     const shoesClick = () => {
         console.log("shoes Click");
 
@@ -82,11 +116,14 @@ export default function ShowRoom(){
             //     true,
             // )
             
+            // setIsFitting(true);
             //내가 클릭한 위치로 카메라 이동
             camearaControlRef.current?.fitToBox(
                 firstObject,
                 true
-            )
+            ).then(() => {
+                // setIsFitting(false);
+            })
             
         }
     }
@@ -99,13 +136,21 @@ export default function ShowRoom(){
                 ref={camearaControlRef}
                 enabled={true}
                 dollyToCursor={true} // 마우스가 가르키는 방향으로 확대,축소
-                onChange={() => {
-                    // console.log("on change");
-                    // console.log(camera.position);                    
+                onChange={(e) => {                  
                 }}
                 // minDistance={2} //카메라가 갈 수 있는 최소거리
                 // maxDistance={15} // 카메라가 갈 수 있는 최대거리
             />
+
+            <mesh
+                position={[0,-0.5,0]}
+                scale={5}
+            >
+                <cylinderGeometry 
+                    args={[0.4,0.2,0.2,50]}
+                />
+                <meshStandardMaterial />
+            </mesh>
             <primitive 
                 object={gltf.scene}
                 onClick={shoesClick}
