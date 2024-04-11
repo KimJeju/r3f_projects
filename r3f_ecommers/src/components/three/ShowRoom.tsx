@@ -70,7 +70,7 @@ export default function ShowRoom(){
             dis * Math.cos(angle),
             true,
         )
-        angle += 0.01;
+        // angle += 0.01;
         }
 
 
