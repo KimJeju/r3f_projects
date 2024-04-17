@@ -1,10 +1,26 @@
+import './App.css';
+import styled from 'styled-components';
+
 import Appbar from "./Components/Appbar";
+import Footer from "./Components/Footer";
 
-export default function App(){
 
-  return(
+const WrapContainer = styled.div`
+  height : auto;
+  min-height : 95vh;
+  padding-bottom : 60px;
+`
+
+
+export default function App() {
+
+  return (
     <>
-     <Appbar />
+      <WrapContainer >
+      <Appbar />
+
+      </WrapContainer>
+      <Footer />
     </>
   )
 }
