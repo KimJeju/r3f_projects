@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Appbar from "./Components/Appbar";
 import Footer from "./Components/Footer";
+import ContentContainer from './Components/ContentContainer';
 
 
 const WrapContainer = styled.div`
@@ -18,6 +19,8 @@ export default function App() {
     <>
       <WrapContainer >
       <Appbar />
+
+      <ContentContainer />
 
       </WrapContainer>
       <Footer />
