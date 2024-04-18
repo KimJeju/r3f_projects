@@ -12,14 +12,21 @@ const Wrapper = styled.div`
     // box-shadow : 1 1 1 1;
 `
 const SlideWrapper = styled.div`
-    background-color : red;
+    // background-color : red;
     width : 100%;
-    height : 50vh;
+    height : 70vh;
 
     display : flex;
     align-items : center;
     // justify-content : space-around;
     overflow : hidden;
+    overflow : scroll;
+    transition : 0.5s;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        height : 70vh;
+    }
 `
 
 
@@ -42,7 +49,7 @@ export default function ContentContainer() {
     
     return (
         <Wrapper>
-            <SlideWrapper>
+            <SlideWrapper id="disable_scroll">
                 {ViewList &&
                     ViewList.map((view, index) => {
                         return (
