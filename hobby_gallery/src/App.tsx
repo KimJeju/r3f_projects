@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Appbar from "./Components/Appbar";
 import Footer from "./Components/Footer";
-import ContentContainer from './Components/ContentContainer';
+import ContentContainer from './Components/Share/ContentContainer';
 
 
 const WrapContainer = styled.div`

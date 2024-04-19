@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import  {View } from "../Models/IViewModel"
-import OneViewRender from "./Contents/OneViewRender"
+import  {View } from "../../Models/IViewModel"
+import OneViewRender from "../Contents/OneViewRender"
 
 const Wrapper = styled.div`
     height : 70vh;
