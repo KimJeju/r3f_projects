@@ -1,6 +1,7 @@
 import { View } from "../../Models/IViewModel";
 import styled from "styled-components";
 import "../../App.css"
+import test_img from './imgs/test.jpg'
 
 
 const ViewWrapper = styled.div`
@@ -11,6 +12,8 @@ const ViewWrapper = styled.div`
 
     transition :0.5s;
     box-shadow: 3px 3px 3px 3px #555555;
+
+    overflow : hidden;
 
     &:hover {
         width : 400px;
@@ -23,14 +26,24 @@ const ViewWrapper = styled.div`
         width : 350px;
 
     }
+
+    // img {
+    //     width : 50px;
+    //     height : 50px;
+    // }
 `
 
 export default function OneViewRender({ view }: { view: View }) {
-
+    
     return (
         <ViewWrapper >
-            <span>{view.imagePath}</span>
-            <span>{view.title}</span>
+            {   
+                //테스트용 삼항 분기
+                view.imagePath === "" ? 
+                <span>{view.imagePath}</span> :            
+                <img src={view.imagePath} alt="" style={{width : '400px', height : "500px"}}/>
+            }
+            {/* <span>{view.title}</span> */}
 
         </ViewWrapper>
     )

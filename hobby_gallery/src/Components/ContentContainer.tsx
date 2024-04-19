@@ -30,15 +30,15 @@ const SlideWrapper = styled.div`
 
 
 const ViewList : View[] = [
-    new View("hello","world"),
-    new View("mock1","data1"),
-    new View("mock2","data2"),
-    new View("mock3","data3"),
-    new View("mock4","data4"),
-    new View("mock5","data5"),
-    new View("mock6","data6"),
-    new View("mock7","data7"),
-    new View("mock8","data8"),
+    new View("hello",'./imgs/test.jpg'),
+    new View("mock1",""),
+    new View("mock2",""),
+    new View("mock3",""),
+    new View("mock4",""),
+    new View("mock5",""),
+    new View("mock6",""),
+    new View("mock7",""),
+    new View("mock8",""),
 ]
 
 export default function ContentContainer() {
