@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { View, ViewList } from "../../Models/IViewModel"
-import OneViewRender from "../Contents/OneViewRender"
+import OneViewRender from "./OneViewRender"
 import { Link } from "react-router-dom"
 
 const Wrapper = styled.div`

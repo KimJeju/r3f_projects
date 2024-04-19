@@ -1,8 +1,8 @@
 import './App.css';
 import styled from 'styled-components';
 
-import Appbar from "./Components/Appbar";
-import Footer from "./Components/Footer";
+import Appbar from "./Components/Globals/Appbar";
+import Footer from "./Components/Globals/Footer";
 import ContentContainer from './Components/Share/ContentContainer';
 import { Outlet, useParams } from 'react-router-dom';
 
@@ -16,10 +16,8 @@ const WrapContainer = styled.div`
 
 export default function App() {
 
+  //파라미터 아이디 가져오기
   const { id } = useParams();
-
-  console.log(id === undefined);
-
 
   return (
     <>

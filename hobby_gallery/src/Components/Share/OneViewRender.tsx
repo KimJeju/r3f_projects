@@ -42,12 +42,9 @@ const ViewWrapper = styled.div`
 
 export default function OneViewRender({ view }: { view: View }) {
 
-    const { id } = useParams();
 
     return (
         <ViewWrapper >
-            <span>{id}</span>
-
             {
                 //테스트용 삼항 분기
                 view.imagePath === "" ?
