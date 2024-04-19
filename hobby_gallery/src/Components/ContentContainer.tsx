@@ -1,6 +1,5 @@
 import styled from "styled-components"
-import { Swiper, SwiperSlide } from "swiper/react"
-import  {IViewModel, View } from "../Models/IViewModel"
+import  {View } from "../Models/IViewModel"
 import OneViewRender from "./Contents/OneViewRender"
 
 const Wrapper = styled.div`
@@ -30,7 +29,7 @@ const SlideWrapper = styled.div`
 `
 
 
-const ViewList : IViewModel[] = [
+const ViewList : View[] = [
     new View("hello","world"),
     new View("mock1","data1"),
     new View("mock2","data2"),
@@ -40,12 +39,9 @@ const ViewList : IViewModel[] = [
     new View("mock6","data6"),
     new View("mock7","data7"),
     new View("mock8","data8"),
-
 ]
 
 export default function ContentContainer() {
-
-    console.log(ViewList);
     
     return (
         <Wrapper>
@@ -53,9 +49,9 @@ export default function ContentContainer() {
                 {ViewList &&
                     ViewList.map((view, index) => {
                         return (
-                            <SwiperSlide key={`view-${index}`}>
+                            <div key={`view-${index}`}>
                                 <OneViewRender view={view}/>
-                            </SwiperSlide>
+                            </div>
                         )
                     })}
             </SlideWrapper>
