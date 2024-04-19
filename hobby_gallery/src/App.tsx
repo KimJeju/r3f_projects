@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Appbar from "./Components/Appbar";
 import Footer from "./Components/Footer";
 import ContentContainer from './Components/Share/ContentContainer';
+import { Outlet, useParams } from 'react-router-dom';
 
 
 const WrapContainer = styled.div`
@@ -15,12 +16,17 @@ const WrapContainer = styled.div`
 
 export default function App() {
 
+  const { id } = useParams();
+
+  console.log(id === undefined);
+
+
   return (
     <>
       <WrapContainer >
       <Appbar />
 
-      <ContentContainer />
+      {id === undefined ?  <ContentContainer /> : <></>}
 
       </WrapContainer>
       <Footer />

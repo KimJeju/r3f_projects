@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import  {View } from "../../Models/IViewModel"
+import { View, ViewList } from "../../Models/IViewModel"
 import OneViewRender from "../Contents/OneViewRender"
+import { Link } from "react-router-dom"
 
 const Wrapper = styled.div`
     height : 70vh;
@@ -28,21 +29,8 @@ const SlideWrapper = styled.div`
     }
 `
 
-
-const ViewList : View[] = [
-    new View("hello",'./imgs/test.jpg'),
-    new View("mock1",""),
-    new View("mock2",""),
-    new View("mock3",""),
-    new View("mock4",""),
-    new View("mock5",""),
-    new View("mock6",""),
-    new View("mock7",""),
-    new View("mock8",""),
-]
-
 export default function ContentContainer() {
-    
+
     return (
         <Wrapper>
             <SlideWrapper id="disable_scroll">
@@ -50,7 +38,9 @@ export default function ContentContainer() {
                     ViewList.map((view, index) => {
                         return (
                             <div key={`view-${index}`}>
-                                <OneViewRender view={view}/>
+                                <Link to={`/arts/${view.id}`}>
+                                    <OneViewRender view={view} />
+                                </Link>
                             </div>
                         )
                     })}

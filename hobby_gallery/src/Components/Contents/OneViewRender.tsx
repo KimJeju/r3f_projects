@@ -1,7 +1,14 @@
-import { View } from "../../Models/IViewModel";
 import styled from "styled-components";
 import "../../App.css"
 import test_img from './imgs/test.jpg'
+
+//use library
+import { Link, useParams } from "react-router-dom";
+
+
+//use personal components
+import { View } from "../../Models/IViewModel";
+
 
 
 const ViewWrapper = styled.div`
@@ -34,17 +41,20 @@ const ViewWrapper = styled.div`
 `
 
 export default function OneViewRender({ view }: { view: View }) {
-    
+
+    const { id } = useParams();
+
     return (
         <ViewWrapper >
-            {   
+            <span>{id}</span>
+
+            {
                 //테스트용 삼항 분기
-                view.imagePath === "" ? 
-                <span>{view.imagePath}</span> :            
-                <img src={view.imagePath} alt="" style={{width : '400px', height : "500px"}}/>
+                view.imagePath === "" ?
+                    <span>{view.imagePath}</span> :
+                    <img src={view.imagePath} alt="" style={{ width: '400px', height: "500px" }} />
             }
             {/* <span>{view.title}</span> */}
-
         </ViewWrapper>
     )
 }
