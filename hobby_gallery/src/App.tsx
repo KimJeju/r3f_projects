@@ -26,7 +26,8 @@ export default function App() {
       <WrapContainer >
       <Appbar />
 
-      {id === undefined ?  <ContentContainer /> : <></>}
+      {/* 디테일이 검색 되었다면 컨텐츠 콘테이너를 disable 하고 Outlet을 활성화 한다. */}
+      {id === undefined ?  <ContentContainer /> : <Outlet />}
 
       </WrapContainer>
       <Footer />
