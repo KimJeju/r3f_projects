@@ -5,6 +5,8 @@ import Appbar from "./Components/Globals/Appbar";
 import Footer from "./Components/Globals/Footer";
 import ContentContainer from './Components/Share/ContentContainer';
 import { Outlet, useParams } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+import ShoesHome from './Components/Contents/Arts/Shoes/ShoesHome';
 
 
 const WrapContainer = styled.div`
@@ -21,14 +23,15 @@ export default function App() {
 
   return (
     <>
-      <WrapContainer >
-      <Appbar />
+      <RecoilRoot>
+        <WrapContainer >
+          <Appbar />
 
-      {/* 디테일이 검색 되었다면 컨텐츠 콘테이너를 disable 하고 Outlet을 활성화 한다. */}
-      {id === undefined ?  <ContentContainer /> : <Outlet />}
-
-      </WrapContainer>
-      <Footer />
+          {/* 디테일이 검색 되었다면 컨텐츠 콘테이너를 disable 하고 Outlet을 활성화 한다. */}
+          {id === undefined ? <ContentContainer /> : <Outlet />}
+        </WrapContainer>
+        <Footer />
+      </RecoilRoot>
     </>
   )
 }

@@ -15,14 +15,22 @@
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@react-three/drei": "^9.105.4",
+    "@react-three/fiber": "^8.16.2",
+    "@types/node": "^20.12.7",
+    "@types/three": "^0.163.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
+    "recoil": "^0.7.7",
+    "sass": "^1.75.0",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.8",
-    "swiper": "^11.1.1"
+    "swiper": "^11.1.1",
+    "three": "^0.163.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

@@ -4,10 +4,10 @@ import { useFrame, useLoader } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber';
 import { CameraControls, ContactShadows } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
-import Constants from '@src/Constants';
+import Constants from '../constants/Constants';
 
 //전역 상태
-import { colorState } from '@src/atoms/Atoms';
+import { colorState } from '../atoms/Atoms';
 import { useRecoilState } from 'recoil';
 
 export default function ShowRoom(){

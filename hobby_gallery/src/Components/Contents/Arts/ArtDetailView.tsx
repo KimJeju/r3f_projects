@@ -1,12 +1,13 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
+import ShoesHome from "./Shoes/ShoesHome";
 
 
 export default function ArtDetailView() {
 
     let { id } = useParams();
 
-    const navigate_id: number | undefined = id as number | undefined;
     //뒤로가기
+    const navigate_id: number | undefined = id as number | undefined;
     const navigate = useNavigate();
 
     const OnBackToPage = () => {
@@ -20,12 +21,8 @@ export default function ArtDetailView() {
 
     return (
         <>
-            <button onClick={OnBackToPage}>back Page</button>
-            {/* {title} */}
-            <p>hello</p>
-            <p>
-                {id}
-            </p>
+            {/* <button onClick={OnBackToPage}>back Page</button> */}
+            <ShoesHome />
         </>
     )
 }

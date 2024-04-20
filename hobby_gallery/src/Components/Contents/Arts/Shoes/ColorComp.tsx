@@ -1,5 +1,5 @@
-import '../Shoes.scss';
-import Constants from '@src/Constants';
+import '../Shoes/Shoes.scss';
+import Constants from './constants/Constants';
 import { 
   Box,
   List,
@@ -9,7 +9,7 @@ import {
   Typography
 } from '@mui/material';
 
-import { colorState } from '@src/atoms/Atoms';
+import { colorState } from './atoms/Atoms';
 import { useRecoilState } from 'recoil';
 
 export default function ColorComp(){
