@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import ShoesHome from "./Shoes/ShoesHome";
 
+//icons
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+
 
 const ContentWarpper = styled.div`
     width : 100%;
@@ -18,8 +21,8 @@ const BackButton = styled.button`
 
     position: absolute;
     z-index : 1;
-    top: 120px; 
-    left: 40px;
+    top: 75px; 
+    left: 20px;
 
     background-image: linear-gradient(to right, #3866F2, #1B0273);
     color : white;
@@ -28,7 +31,7 @@ const BackButton = styled.button`
     border-radius : 8px;
 
     &:hover {
-        color : red;
+        color : #0FC2C0;
     }
 
 `
@@ -53,8 +56,8 @@ export default function ArtDetailView() {
     return (
         <ContentWarpper>
             <BackButton onClick={OnBackToPage}>
-               <p> back Page</p>
-               <p> ■</p>
+               <p>Go Back</p>
+               <KeyboardDoubleArrowLeftIcon />
             </BackButton>
             <ShoesHome />
         </ContentWarpper>
