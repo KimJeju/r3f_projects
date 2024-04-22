@@ -6,7 +6,6 @@ import Footer from "./Components/Globals/Footer";
 import ContentContainer from './Components/Share/ContentContainer';
 import { Outlet, useParams } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-import ShoesHome from './Components/Contents/Arts/Shoes/ShoesHome';
 
 
 const WrapContainer = styled.div`

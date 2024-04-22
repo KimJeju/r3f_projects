@@ -13,9 +13,11 @@ import { useRecoilState } from 'recoil';
 export default function ShowRoom(){
 
     
-    const [selectedColor, setSelectedColor ] = useRecoilState(colorState);
+    const [ selectedColor ] = useRecoilState(colorState); // eslint-disable-line no-unused-vars
 
-    const { raycaster, camera } = useThree()
+    const { raycaster } = useThree(); // eslint-disable-line no-unused-vars
+
+
 
     const [ isFitting, setIsFitting ] = useState(false);
 
@@ -148,7 +150,7 @@ export default function ShowRoom(){
                 dollyToCursor={true} // 마우스가 가르키는 방향으로 확대,축소
                 minDistance={2}
                 maxDistance={4}
-                onChange={(e) => {                  
+                onChange={() => {                  
                 }}
                 // minDistance={2} //카메라가 갈 수 있는 최소거리
                 // maxDistance={15} // 카메라가 갈 수 있는 최대거리

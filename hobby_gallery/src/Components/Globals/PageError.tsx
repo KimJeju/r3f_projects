@@ -28,7 +28,7 @@ export default function PageError() {
             <h1>에러</h1>
             <p>페이지 랜더링에 오류가 발생하였습니다.</p>
             <p>
-                <i>{error.statusText || error.message}</i>
+                {/* <i>{error.statusText || error.message}</i> */}
             </p>
         </ErrorWrapper>
     )

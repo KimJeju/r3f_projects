@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import ShowRoom from "./three/ShowRoom";
-import { OrbitControls } from "@react-three/drei";
+// import { OrbitControls } from "@react-three/drei";
 import ColorComp from "./ColorComp";
 
 export default function ShoesHome(){

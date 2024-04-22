@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import "../../App.css"
-import test_img from './imgs/test.jpg'
 
 //use library
-import { Link, useParams } from "react-router-dom";
 
 
 //use personal components
@@ -15,18 +13,18 @@ const ViewWrapper = styled.div`
     margin : 30px;
     width : 300px;
     height : 400px;
-    background-color : blue;
 
+    border-radius : 5px;
     transition :0.5s;
-    box-shadow: 3px 3px 3px 3px #555555;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     overflow : hidden;
 
     &:hover {
         width : 400px;
-        height : 500px;
+        height : 450px;
 
-        box-shadow: 6px 6px 6px 6px #555555;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 10px 36px 0px;
     }
 
     @media screen and (max-width: 800px) {
@@ -40,6 +38,10 @@ const ViewWrapper = styled.div`
     // }
 `
 
+const Img = styled.img`
+    position: relative;
+`
+
 export default function OneViewRender({ view }: { view: View }) {
     return (
         <ViewWrapper >
@@ -47,7 +49,7 @@ export default function OneViewRender({ view }: { view: View }) {
                 //테스트용 삼항 분기
                 view.imagePath === "" ?
                     <span>{view.imagePath}</span> :
-                    <img src={view.imagePath} alt="" style={{ width: '400px', height: "500px" }} />
+                    <Img src={view.imagePath} alt="" style={{ width: '600px', height: "500px", top : -30, left : -130}} />
             }
             {/* <span>{view.title}</span> */}
         </ViewWrapper>

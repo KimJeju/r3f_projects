@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { View, ViewList } from "../../Models/IViewModel"
+import { ViewList } from "../../Models/IViewModel"
 import OneViewRender from "./OneViewRender"
 import { Link } from "react-router-dom"
 
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `
 const SlideWrapper = styled.div`
     width : 100%;
-    height : 95vh;
+    height : 70vh;
 
     display : flex;
     align-items : center;

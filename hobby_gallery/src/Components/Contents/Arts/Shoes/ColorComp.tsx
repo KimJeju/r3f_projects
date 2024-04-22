@@ -1,7 +1,6 @@
 import '../Shoes/Shoes.scss';
 import Constants from './constants/Constants';
 import { 
-  Box,
   List,
   ListItem,
   IconButton,
@@ -23,12 +22,12 @@ export default function ColorComp(){
 	const btnWidth = 32;
 	const width = Constants.COLOR_ARR.length * (btnWidth + padding * 2);
 
-  const colorClick = (color:string, idx:number) => {
+  const colorClick = (idx:number) => {
       setSelectedColor(idx);
 	};
   return(
-    <Box className={'color-wrap'} >
-      <Box className={'color-inner-wrap'} style={{width:width}}  >
+    <div className={'color-wrap'} >
+      <div className={'color-inner-wrap'} style={{width:width}}  >
         <Typography className="current-part">
         { Constants.COLOR_ARR[selectedColor] != undefined ? Constants.COLOR_ARR[selectedColor].name  : <></>}
         </Typography>
@@ -38,7 +37,7 @@ export default function ColorComp(){
               Constants.COLOR_ARR.map((color, idx) => (
                 <ListItem className="color-item" key={'color-'+idx}>
                   <IconButton 
-                  onClick={(e)=>colorClick(color, idx)} 
+                  onClick={()=>colorClick(idx)} 
                   className={idx ? "color-btn selected" : "color-btn"} 
                   style={{backgroundColor:color.color}}
                   >
@@ -53,7 +52,7 @@ export default function ColorComp(){
               ))
             }
         </List>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }

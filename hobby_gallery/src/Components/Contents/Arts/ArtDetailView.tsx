@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link, useNavigate, useParams } from "react-router-dom"
+import {useNavigate, useParams } from "react-router-dom"
 import ShoesHome from "./Shoes/ShoesHome";
 
 //icons
@@ -38,14 +38,14 @@ const BackButton = styled.button`
 
 export default function ArtDetailView() {
 
-    let { id } = useParams();
+    const { id } = useParams(); 
 
     //뒤로가기
     const navigate_id: number | undefined = id as number | undefined;
     const navigate = useNavigate();
 
     const OnBackToPage = () => {
-        if (navigate_id < 1) {
+        if (navigate_id != undefined && navigate_id < 1) {
             navigate("/");
         } else {
             navigate(-1);

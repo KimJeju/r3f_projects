@@ -16,7 +16,7 @@ export class View implements IViewModel {
 }
 
 export const ViewList : View[] = [
-    new View(1,"hello",'./imgs/test.jpg'),
+    new View(1,"hello",'./imgs/shoes.png'),
     new View(2,"mock1",""),
     new View(3,"mock2",""),
     new View(4,"mock3",""),
