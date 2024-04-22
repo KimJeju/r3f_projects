@@ -23,8 +23,6 @@ export default function ColorComp(){
 	const btnWidth = 32;
 	const width = Constants.COLOR_ARR.length * (btnWidth + padding * 2);
 
-  
-
   const colorClick = (color:string, idx:number) => {
       setSelectedColor(idx);
 	};
@@ -33,8 +31,8 @@ export default function ColorComp(){
       <Box className={'color-inner-wrap'} style={{width:width}}  >
         <Typography className="current-part">
         { Constants.COLOR_ARR[selectedColor] != undefined ? Constants.COLOR_ARR[selectedColor].name  : <></>}
-
         </Typography>
+        <br/>
         <List className={'list-wrap'} >
             {
               Constants.COLOR_ARR.map((color, idx) => (

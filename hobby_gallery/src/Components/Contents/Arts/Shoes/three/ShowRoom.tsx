@@ -22,11 +22,8 @@ export default function ShowRoom(){
 
     const gltf = useLoader(GLTFLoader, "/models/custom.glb");
     const camearaControlRef = useRef<CameraControls>(null);
-
-    console.log(gltf.asset);
     
     window.addEventListener("keydown", (e) => {
-
         switch(e.key){
             case 'a' :
                 camearaControlRef.current?.setLookAt(
@@ -47,8 +44,6 @@ export default function ShowRoom(){
 
    
     useEffect(() => {
-
-
         //gltf 매쉬 그림자 켜주기 
         gltf.scene.children.forEach(el => {
             el.children.forEach((mesh) => (
@@ -68,8 +63,8 @@ export default function ShowRoom(){
     
     },[])
 
-    let angle = 0;
-    let dis = 2; //거리
+    const angle = 0;
+    const dis = 1.5; //거리
     useFrame(() => {
 
         if(!isFitting){
@@ -81,8 +76,6 @@ export default function ShowRoom(){
         )
         // angle += 0.01;
         }
-
-
         //메터리얼 위치변환
         const rightShores = gltf.scene.children[0];
         const leftShores = gltf.scene.children[1];
@@ -95,9 +88,6 @@ export default function ShowRoom(){
         leftShores.position.x = 0;
         leftShores.position.z = 0.37;    
         leftShores.position.y = 0.44;    
-
-
-
     })
 
     const shoesClick = () => {
@@ -157,7 +147,7 @@ export default function ShowRoom(){
                 enabled={true}
                 dollyToCursor={true} // 마우스가 가르키는 방향으로 확대,축소
                 minDistance={2}
-                maxDistance={10}
+                maxDistance={4}
                 onChange={(e) => {                  
                 }}
                 // minDistance={2} //카메라가 갈 수 있는 최소거리
@@ -173,7 +163,7 @@ export default function ShowRoom(){
                 <cylinderGeometry 
                     args={[0.4,0.2,0.2,50]}
                 />
-                <meshStandardMaterial />
+                <meshStandardMaterial color={"#ffffff"} />
             </mesh>
 
             <primitive 

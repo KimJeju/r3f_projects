@@ -11,7 +11,7 @@ export default function ShoesHome(){
                 {/* <OrbitControls />  */}
                 {/* <axesHelper args={[5]} />
                 <gridHelper /> */}
-                <color attach={'background'} args={['#b7f2f1']}/>   
+                <color attach={'background'} args={['#008F8C']}/>   
                 <ShowRoom />
             </Canvas>
             <ColorComp />
