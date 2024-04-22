@@ -41,8 +41,6 @@ const ViewWrapper = styled.div`
 `
 
 export default function OneViewRender({ view }: { view: View }) {
-
-
     return (
         <ViewWrapper >
             {

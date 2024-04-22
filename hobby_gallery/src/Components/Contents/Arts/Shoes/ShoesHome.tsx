@@ -7,11 +7,12 @@ export default function ShoesHome(){
 
     return(
         <>
-            <Canvas resize={{ scroll: true, debounce: { scroll: 50, resize: 0 } }}>   
+            <Canvas>   
                 {/* <OrbitControls />  */}
                 {/* <axesHelper args={[5]} />
                 <gridHelper /> */}
                 <color attach={'background'} args={['#b7f2f1']}/>   
+                <ShowRoom />
             </Canvas>
             <ColorComp />
         </>

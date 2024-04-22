@@ -20,7 +20,7 @@ export default function ColorComp(){
   
   //컬러박스 길이 
   const padding = 16;
-	const btnWidth = 30;
+	const btnWidth = 32;
 	const width = Constants.COLOR_ARR.length * (btnWidth + padding * 2);
 
   

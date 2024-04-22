@@ -1,6 +1,37 @@
+import styled from "styled-components";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import ShoesHome from "./Shoes/ShoesHome";
 
+
+const ContentWarpper = styled.div`
+    width : 100%;
+    height : 80vh;
+`
+
+const BackButton = styled.button`
+    width : 100px;
+    height : 30px;
+
+    display : flex;
+    justify-content : space-around;
+    align-items : center;
+
+    position: absolute;
+    z-index : 1;
+    top: 120px; 
+    left: 40px;
+
+    background-image: linear-gradient(to right, #3866F2, #1B0273);
+    color : white;
+    border : none;
+    transition: all 0.5s ease-in;
+    border-radius : 8px;
+
+    &:hover {
+        color : red;
+    }
+
+`
 
 export default function ArtDetailView() {
 
@@ -20,9 +51,12 @@ export default function ArtDetailView() {
 
 
     return (
-        <>
-            {/* <button onClick={OnBackToPage}>back Page</button> */}
+        <ContentWarpper>
+            <BackButton onClick={OnBackToPage}>
+               <p> back Page</p>
+               <p> ■</p>
+            </BackButton>
             <ShoesHome />
-        </>
+        </ContentWarpper>
     )
 }

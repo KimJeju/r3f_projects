@@ -19,8 +19,11 @@ export default function ShowRoom(){
 
     const [ isFitting, setIsFitting ] = useState(false);
 
-    const gltf = useLoader(GLTFLoader, "./models/custom.glb");
+
+    const gltf = useLoader(GLTFLoader, "/models/custom.glb");
     const camearaControlRef = useRef<CameraControls>(null);
+
+    console.log(gltf.asset);
     
     window.addEventListener("keydown", (e) => {
 

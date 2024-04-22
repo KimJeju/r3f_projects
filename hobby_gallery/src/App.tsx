@@ -12,7 +12,6 @@ import ShoesHome from './Components/Contents/Arts/Shoes/ShoesHome';
 const WrapContainer = styled.div`
   height : auto;
   min-height : 95vh;
-  padding-bottom : 60px;
 `
 
 
