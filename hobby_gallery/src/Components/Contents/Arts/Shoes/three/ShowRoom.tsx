@@ -6,6 +6,8 @@ import { CameraControls, ContactShadows } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import Constants from '../constants/Constants';
 
+import custom from "../../../../ThreeModels/shoes.glb?url";
+
 
 //전역 상태
 import { colorState } from '../atoms/Atoms';
@@ -20,8 +22,10 @@ export default function ShowRoom(){
 
     const [ isFitting, setIsFitting ] = useState(false);
 
+    console.log(custom);
 
-    const gltf = useLoader(GLTFLoader, "./models/custom.glb");
+
+    const gltf = useLoader(GLTFLoader, custom);
     const camearaControlRef = useRef<CameraControls>(null);
 
     window.addEventListener("keydown", (e) => {
