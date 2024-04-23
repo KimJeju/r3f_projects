@@ -6,6 +6,7 @@ import { CameraControls, ContactShadows } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import Constants from '../constants/Constants';
 
+
 //전역 상태
 import { colorState } from '../atoms/Atoms';
 import { useRecoilState } from 'recoil';
@@ -17,14 +18,12 @@ export default function ShowRoom(){
 
     const { raycaster } = useThree(); // eslint-disable-line no-unused-vars
 
-
-
     const [ isFitting, setIsFitting ] = useState(false);
 
 
-    const gltf = useLoader(GLTFLoader, "/models/custom.glb");
+    const gltf = useLoader(GLTFLoader, "https://drive.google.com/file/d/1gQr2-yqArmJzjUV4yodRplOKosuUvQcZ/view?usp=drive_link/custom.glb");
     const camearaControlRef = useRef<CameraControls>(null);
-    
+
     window.addEventListener("keydown", (e) => {
         switch(e.key){
             case 'a' :
