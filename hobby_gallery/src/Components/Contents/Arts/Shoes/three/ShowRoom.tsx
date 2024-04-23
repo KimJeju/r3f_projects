@@ -25,7 +25,7 @@ export default function ShowRoom(){
     console.log(custom);
 
 
-    const gltf = useLoader(GLTFLoader, custom);
+    const gltf = useLoader(GLTFLoader, custom.toLocaleLowerCase());
     const camearaControlRef = useRef<CameraControls>(null);
 
     window.addEventListener("keydown", (e) => {
