@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber';
-import { CameraControls, ContactShadows } from '@react-three/drei';
+import { CameraControls, ContactShadows, useGLTF} from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import Constants from '../constants/Constants';
 
@@ -24,8 +24,11 @@ export default function ShowRoom(){
 
     console.log(custom);
 
+    const gltf = useGLTF(custom);
 
-    const gltf = useLoader(GLTFLoader, custom.toLocaleLowerCase());
+    // console.log(test);
+
+    // const gltf = useLoader(GLTFLoader, custom.toLocaleLowerCase());
     const camearaControlRef = useRef<CameraControls>(null);
 
     window.addEventListener("keydown", (e) => {
