@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import { GLTFLoader } from 'three/examples/jsm/Addons.js'
-import { useFrame, useLoader } from '@react-three/fiber'
+import {  } from 'three/examples/jsm/Addons.js'
+import { useFrame } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber';
 import { CameraControls, ContactShadows, useGLTF} from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
